@@ -20,6 +20,8 @@ def get_data(question, context):
 # this is the main function in which we define our webpage
 def main():
     # front end elements of the web page
+    st.title('Transformers Q and A Demo')
+    st.header('Transformers Q and A Demo')
 
     # following lines create boxes in which user can enter data required to make prediction
     c = st.text_area("Context")
