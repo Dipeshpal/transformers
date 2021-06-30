@@ -20,12 +20,13 @@ def get_data(question, context):
 # this is the main function in which we define our webpage
 def main():
     # front end elements of the web page
+    st.beta_set_page_config(page_title='QnA')
+
     st.title('Transformers Q and A Demo')
-    st.header('Transformers Q and A Demo')
 
     # following lines create boxes in which user can enter data required to make prediction
-    c = st.text_area("Context")
-    q = st.text_input('Question')
+    c = st.text_area("Context", "My name is Robert")
+    q = st.text_input('Question', 'What is my name?')
     result = ""
 
     # when 'Predict' is clicked, make the prediction and store it
