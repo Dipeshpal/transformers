@@ -19,6 +19,7 @@ if not hasattr(st, 'already_started_server'):
 
     app = Flask(__name__)
 
+
     @app.route('/foo')
     def serve_foo():
         return 'This page is served via Flask!'
