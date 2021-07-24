@@ -1,5 +1,7 @@
 import streamlit as st
+from pyngrok import ngrok
 
+ssh_tunnel = "None"
 if not hasattr(st, 'already_started_server'):
     # Hack the fact that Python modules (like st) only load once to
     # keep track of whether this file already ran.
@@ -23,6 +25,9 @@ if not hasattr(st, 'already_started_server'):
 
     app.run(port=8888)
 
+    http_tunnel = ngrok.connect()
+    ssh_tunnel = ngrok.connect(22, "tcp")
+    st.write('Server :', ssh_tunnel)
 
 # We'll never reach this part of the code the first time this file executes!
 
