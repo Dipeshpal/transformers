@@ -1,7 +1,7 @@
 import streamlit as st
 from pyngrok import ngrok
 
-ssh_tunnel = "None"
+url = "None"
 if not hasattr(st, 'already_started_server'):
     # Hack the fact that Python modules (like st) only load once to
     # keep track of whether this file already ran.
@@ -23,14 +23,15 @@ if not hasattr(st, 'already_started_server'):
     def serve_foo():
         return 'This page is served via Flask!'
 
+    url = ngrok.connect(8888).public_url
+    print(' * Tunnel URL:', url)
+
     app.run(port=8888)
 
-    http_tunnel = ngrok.connect()
-    ssh_tunnel = ngrok.connect(22, "tcp")
-    st.write('Server :', ssh_tunnel)
 
 # We'll never reach this part of the code the first time this file executes!
 
 # Your normal Streamlit app goes here:
 x = st.slider('Pick a number')
 st.write('You picked:', x)
+st.write('url', url)
