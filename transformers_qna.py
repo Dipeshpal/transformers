@@ -21,12 +21,6 @@ def get_data(question, context):
 def main():
     # front end elements of the web page
     st.title('Transformers Q and A Demo')
-    import socket   
-    hostname = socket.gethostname()   
-    IPAddr = socket.gethostbyname(hostname)   
-    print("Your Computer Name is:" + hostname)   
-    print("Your Computer IP Address is:" + IPAddr)   
-    st.success(IPAddr)
 
     # following lines create boxes in which user can enter data required to make prediction
     c = st.text_area("Context", "My name is Robert")
